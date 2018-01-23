@@ -28,9 +28,9 @@ sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 service ssh restart
 
 # set repo
-wget -O /etc/apt/sources.list "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Config/sources.list.debian7"
-wget "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Config/dotdeb.gpg"
-wget "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Config/jcameron-key.asc"
+wget -O /etc/apt/sources.list "https://raw.githubusercontent.com/audomkarn/try-debian/master/sources.list.debian7"
+wget "https://raw.githubusercontent.com/audomkarn/try-debian/master/dotdeb.gpg"
+wget "https://raw.githubusercontent.com/audomkarn/try-debian/master/jcameron-key.asc"
 cat dotdeb.gpg | apt-key add -;rm dotdeb.gpg
 cat jcameron-key.asc | apt-key add -;rm jcameron-key.asc
 
@@ -48,7 +48,7 @@ apt-get -y install nano iptables dnsutils openvpn screen whois ngrep unzip unrar
 
 # install neofetch
 echo "deb http://dl.bintray.com/dawidd6/neofetch jessie main" | sudo tee -a /etc/apt/sources.list
-curl -L "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Config/bintray-public.key.asc" -o Release-neofetch.key && sudo apt-key add Release-neofetch.key && rm Release-neofetch.key
+curl -L "https://raw.githubusercontent.com/audomkarn/try-debian/master/bintray-public.key.asc" -o Release-neofetch.key && sudo apt-key add Release-neofetch.key && rm Release-neofetch.key
 apt-get update
 apt-get install neofetch
 
@@ -62,37 +62,37 @@ echo 'echo -e ""' >> .bashrc
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Config/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/audomkarn/try-debian/master/nginx.conf"
 mkdir -p /home/vps/public_html
 echo "<pre>Setup by Bustami Arifin</pre>" > /home/vps/public_html/index.html
-wget -O /etc/nginx/conf.d/vps.conf "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Config/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/audomkarn/try-debian/master/vps.conf"
 service nginx restart
 
 # install openvpn
-wget -O /etc/openvpn/openvpn.tar "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Config/openvpn-debian.tar"
+wget -O /etc/openvpn/openvpn.tar "https://raw.githubusercontent.com/audomkarn/try-debian/master/openvpn-debian.tar"
 cd /etc/openvpn/
 tar xf openvpn.tar
-wget -O /etc/openvpn/1194.conf "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Config/1194.conf"
+wget -O /etc/openvpn/1194.conf "https://raw.githubusercontent.com/audomkarn/try-debian/master/1194.conf"
 service openvpn restart
 sysctl -w net.ipv4.ip_forward=1
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 iptables -t nat -I POSTROUTING -s 192.168.100.0/24 -o eth0 -j MASQUERADE
 iptables-save > /etc/iptables_yg_baru_dibikin.conf
-wget -O /etc/network/if-up.d/iptables "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Config/iptables"
+wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/audomkarn/try-debian/master/iptables"
 chmod +x /etc/network/if-up.d/iptables
 service openvpn restart
 
 # konfigurasi openvpn
 cd /etc/openvpn/
-wget -O /etc/openvpn/client.ovpn "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Config/open-vpn.conf"
+wget -O /etc/openvpn/client.ovpn "https://raw.githubusercontent.com/audomkarn/try-debian/master/open-vpn.conf"
 sed -i $MYIP2 /etc/openvpn/client.ovpn;
 cp client.ovpn /home/vps/public_html/
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Config/badvpn-udpgw"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/audomkarn/try-debian/master/badvpn-udpgw"
 if [ "$OS" == "x86_64" ]; then
-  wget -O /usr/bin/badvpn-udpgw "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Config/badvpn-udpgw64"
+  wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/audomkarn/try-debian/master/badvpn-udpgw64"
 fi
 sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300' /etc/rc.local
 chmod +x /usr/bin/badvpn-udpgw
@@ -117,7 +117,7 @@ service dropbear restart
 # install squid3
 cd
 apt-get -y install squid3
-wget -O /etc/squid3/squid.conf "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Config/squid.conf"
+wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/audomkarn/try-debian/master/squid.conf"
 sed -i $MYIP2 /etc/squid3/squid.conf;
 service squid3 restart
 
