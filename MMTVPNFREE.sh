@@ -131,17 +131,17 @@ service webmin restart
 
 # download script
 cd /usr/bin
-wget -O menu "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Scripts/FREE/menu.sh"
-wget -O 1 "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Scripts/FREE/1.sh"
-wget -O 2 "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Scripts/FREE/2.sh"
-wget -O 3 "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Scripts/FREE/3.sh"
-wget -O 4 "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Scripts/FREE/4.sh"
-wget -O 5 "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Scripts/FREE/5.sh"
-wget -O 6 "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Scripts/FREE/6.sh"
-wget -O 7 "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Scripts/FREE/7.sh"
-wget -O 8 "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Scripts/FREE/8.sh"
-wget -O 9 "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Scripts/FREE/9.sh"
-wget -O 10 "http://103.58.148.235:2222/CMD_FILE_MANAGER/domains/testscripz01.tk/public_html/ScriptVPN%20MMTFREE/ScriptVPN%20MMTFREE/Scripts/FREE/10.sh"
+wget -O menu "https://raw.githubusercontent.com/audomkarn/try-debian/menu/menu.sh"
+wget -O 1 "https://raw.githubusercontent.com/audomkarn/try-debian/menu/1.sh"
+wget -O 2 "https://raw.githubusercontent.com/audomkarn/try-debian/menu/2.sh"
+wget -O 3 "https://raw.githubusercontent.com/audomkarn/try-debian/menu/3.sh"
+wget -O 4 "https://raw.githubusercontent.com/audomkarn/try-debian/menu/4.sh"
+wget -O 5 "https://raw.githubusercontent.com/audomkarn/try-debian/menu/5.sh"
+wget -O 6 "https://raw.githubusercontent.com/audomkarn/try-debian/menu/6.sh"
+wget -O 7 "https://raw.githubusercontent.com/audomkarn/try-debian/menu/7.sh"
+wget -O 8 "https://raw.githubusercontent.com/audomkarn/try-debian/menu/8.sh"
+wget -O 9 "https://raw.githubusercontent.com/audomkarn/try-debian/menu/9.sh"
+wget -O 10 "https://raw.githubusercontent.com/audomkarn/try-debian/menu/10.sh"
 
 echo "0 0 * * * root /sbin/reboot" > /etc/cron.d/reboot
 
